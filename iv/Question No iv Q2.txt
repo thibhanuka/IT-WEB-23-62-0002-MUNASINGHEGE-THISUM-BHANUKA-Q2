@@ -1,0 +1,100 @@
+A.) Get all the information of all Students
+
+answer->
+
+SELECT *
+FROM Students;
+
+
+result->
+
+StudentID		StudentName		StudentCity	CourseID
+
+1		Kasun Gamage		Kandy		2
+2		Daniel Sam		Jaffna		3
+3		Hansi Silva		Colombo		1
+4		Ranidu Herath		Galle		3
+5		Praneeth Wijesinghe	Kandy		4
+6		Nuwani Herath		Rathnapura	1
+
+
+
+
+
+
+
+B.) Select student id, name and city from students who are from the ‘Kandy’
+
+answer->
+
+SELECT StudentID, StudentName, StudentCity
+FROM Students
+WHERE StudentCity = 'Kandy';
+
+
+result->
+
+StudentID		StudentName		StudentCity
+		
+1		Kasun Gamage		Kandy
+5		Praneeth Wijesinghe	Kandy
+
+
+
+
+
+
+C.) Update the City as 'Galle' of the Student whose ID equals to 4 
+
+answer->
+
+UPDATE Students
+SET StudentCity = 'Galle'
+WHERE StudentID = 4;
+
+
+result->
+
+StudentID		StudentName		StudentCity	CourseID
+
+1		Kasun Gamage		Kandy		2
+2		Daniel Sam		Jaffna		3
+3		Hansi Silva		Colombo		1
+4		Ranidu Herath		Galle		3
+5		Praneeth Wijesinghe	Kandy		4
+6		Nuwani Herath		Rathnapura	1
+
+
+
+
+
+D.) Get all the information of all students with their course names
+
+
+answer->
+
+SELECT Students.*, Courses.CourseName
+FROM Students
+JOIN Courses ON Students.CourseID = Courses.CourseID;
+
+
+result->
+
+StudentID		StudentName		StudentCity	CourseID		CourseName
+
+1		Kasun Gamage		Kandy		2		Graphic Design
+2		Daniel Sam		Jaffna		3		Mobile App Development
+3		Hansi Silva		Colombo		1		Web Development
+4		Ranidu Herath		Galle		3		Mobile App Development
+5		Praneeth Wijesinghe	Kandy		4		Java
+6		Nuwani Herath		Rathnapura	1		Web Development
+
+
+
+
+
+
+
+
+
+

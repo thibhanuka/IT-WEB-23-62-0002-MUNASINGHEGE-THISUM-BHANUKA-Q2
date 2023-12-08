@@ -1,0 +1,55 @@
+﻿
+@page
+@model StudentApp.Pages.AllData.AllDataModel
+@{
+    ViewData["Title"] = "All Data";
+}
+
+<h1 class="text-danger pt-5 pb-3 text-center">Student Information Page</h1>
+
+<div class="pt-5">
+
+    <table class="pt-5 table table-bordered"">
+        <thead class="text-white bg-danger">
+            <tr class="px-5">
+                <th class="px-5">Student ID</th>
+                <th class ="px-5">Student Name</th>
+                <th class="px-5">Student City</th>
+                <th class="px-5">Course ID</th>
+                <th class="px-5">Course Name</th>
+                <th class="px-5">Lecturer Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model.Students)
+            {
+                <tr>
+                    <td class="px-5">@student.StudentId</td>
+                    <td class="px-5">@student.StudentName</td>
+                    <td class="px-5">@student.StudentCity</td>
+                    <td class="px-5">@student.CourseId</td>
+                    <!-- Find the corresponding course for the student -->
+                    @{
+                        var course = Model.Courses.FirstOrDefault(c => c.CourseId == student.CourseId);
+                    }
+
+                    <td class="px-5">@(course != null ? course.CourseName : "N/A")</td>
+                    <td class="px-5">@(course != null ? course.LecturerName : "N/A")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
