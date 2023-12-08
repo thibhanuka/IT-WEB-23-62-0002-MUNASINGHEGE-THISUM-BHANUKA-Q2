@@ -1,0 +1,45 @@
+﻿@page
+@model StudentApp.Pages.Students.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Student.StudentId" />
+            <div class="form-group">
+                <label asp-for="Student.StudentName" class="control-label"></label>
+                <input asp-for="Student.StudentName" class="form-control" />
+                <span asp-validation-for="Student.StudentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.StudentCity" class="control-label"></label>
+                <input asp-for="Student.StudentCity" class="form-control" />
+                <span asp-validation-for="Student.StudentCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.CourseId" class="control-label"></label>
+                <select asp-for="Student.CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+                <span asp-validation-for="Student.CourseId" class="text-danger"></span>
+            </div>
+            <div class="form-group pt-3">
+                <input type="submit" value="Save" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="pt-3">
+    <a asp-page="./Index" class="link-danger">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
